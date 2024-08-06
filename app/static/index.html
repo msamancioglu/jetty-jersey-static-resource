@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello API</title>
+</head>
+<body>
+    <h1>Welcome to the Hello API</h1>
+    <button id="fetchMessageButton">Fetch Hello Message</button>
+    <p id="message"></p>
+
+    <script>
+        document.getElementById('fetchMessageButton').addEventListener('click', function() {
+            fetch('/api/hello')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('message').textContent = data.message;
+                    console.log(data.message);
+                    console.log(data.message);
+                })
+                .catch(error => {
+                    console.error('Error fetching the hello message:', error);
+                });
+        });
+    </script>
+</body>
+</html>
